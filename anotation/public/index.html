@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="images/trademarkRegistered.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="key.css">
+    <link rel="stylesheet" href="style.css">
+   
+    <title>Lista de Usuários</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+   
+    <main class="contein__lista-pessoas">
+      <section class="lista-pessoas-vazia">
+          <h2 class="lista-pessoas-vazia__msg">Sua lista está vazia !</h2>
+      </section>
+      <table class="lista-pessoas">
+          <thead>
+              <tr class="lista-pessoas__header">
+                  <th>Nome:</th>
+                  <th>Email:</th>
+                  <th>Data de nascimento:</th>
+                  <th>Ação</th>
+              </tr>
+          </thead>
+          <tbody class="lista-pessoas__body">
+          </tbody>
+      </table>
+  </main>
+  <button type="button" class="btn-addPessoa"><span class="material-symbols-outlined btn-icone">person_add</span>
+      Adicionar</button>
+  <section class="modal-addPessoa modal">
+      <form class="form-addPessoa">
+          <header>
+              <h2 class="modal__mensagem">Adicionar Novo Cliente</h2>
+          </header>
+          <div class="form-addPessoa__content form__content-flutuante">
+              <input type="text" class="input-modal" id="form-addPessoa__input-nome" maxlength="30"
+                  onfocus="ocultarMsgErro(inputAddNome)" placeholder=" ">
+              <label for="form-addPessoa__input-nome">Nome</label>
+              <span class="form__msg-erro">erro</span>
+          </div>
+          <div class="form-addPessoa__content form__content-flutuante">
+              <input type="email" class="input-modal" id="form-addPessoa__input-email" maxlength="50"
+                  onfocus="ocultarMsgErro(inputAddEmail)" placeholder=" ">
+              <label for="form-addPessoa__input-email">Email</label>
+              <span class="form__msg-erro">erro</span>
+          </div>
+          <div class="form-addPessoa__content">
+              <label for="form-addPessoa__input-data" class="form-addPessoa__label-data">Data de nascimento</label>
+              <input type="date" id="form-addPessoa__input-data" onfocus="ocultarMsgErro(inputAddData)">
+              <span class="form__msg-erro">erro</span>
+          </div>
+          <div class="form-addPessoa__content modal_content-btn">
+              <button type="button" class="form-addPessoa__btn-add"><span
+                      class="material-symbols-outlined btn-icone">person_add</span> Adicionar</button>
+              <button type="button" class="form-addPessoa__btn-cancelar botoes-cancelar"><span
+                      class="material-symbols-outlined btn-icone">cancel</span> Cancelar</button>
+          </div>
+      </form>
+  </section>
+  <section class="modal-editPessoa modal">
+      <form class="form-editPessoa">
+          <header>
+              <h2 class="modal__mensagem">Editar dados</h2>
+          </header>
+          <div class="form-editPessoa__content form__content-flutuante">
+              <input type="text" class="input-modal" id="form-editPessoa__input-nome" maxlength="30"
+                  onfocus="ocultarMsgErro(inputEditNome)" placeholder=" ">
+              <label for="form-editPessoa__input-nome">Nome</label>
+              <span class="form__msg-erro">erro</span>
+          </div>
+          <div class="form-editPessoa__content form__content-flutuante">
+              <input type="email" class="input-modal" id="form-editPessoa__input-email" maxlength="32"
+                  onfocus="ocultarMsgErro(inputEditEmail)" placeholder=" ">
+              <label for="form-editPessoa__input-email">Email</label>
+              <span class="form__msg-erro">erro</span>
+          </div>
+          <div class="form-editPessoa__content">
+              <label for="form-editPessoa__input-data" class="form-editPessoa__label-data">Data de nascimento</label>
+              <input type="date" id="form-editPessoa__input-data" onfocus="ocultarMsgErro(inputEditData)">
+              <span class="form__msg-erro">erro</span>
+          </div>
+          <div class="form-editPessoa__content modal_content-btn">
+              <button type="button" class="form-editPessoa__btn-edit"><span
+                      class="material-symbols-outlined btn-icone">edit_note</span> Salvar</button>
+              <button type="button" class="form-editPessoa__btn-cancelar botoes-cancelar"><span
+                      class="material-symbols-outlined btn-icone">cancel</span> Cancelar</button>
+          </div>
+      </form>
+  </section>
+  <section class="modal-removerPessoa modal">
+      <section class="modal-removerPessoa__section">
+          <h2 class="modal-removerPessoa__mensagem modal__mensagem"></h2>
+          <div class="modal-removerPessoa__content modal_content-btn">
+              <button type="button" class="modal-removerPessoa__btn-remover"><span
+                      class="material-symbols-outlined btn-icone">delete</span>Remover</button>
+              <button type="button" class="modal-removerPessoa__btn-cancelar botoes-cancelar"><span
+                      class="material-symbols-outlined btn-icone">cancel</span> Cancelar</button>
+          </div>
+      </section>
+  </section><br><br><br><br><br><br><br><br>
+  <footer>
+      <div class="logoSection">
+          <h1> <a href="https://github.com/RafaelMocellinL19" target="_blank" rel="noopener noreferrer"> <img src="images/PastaLogos/github.png" class="logo"></img></a>
+              
+              <a href="https://wa.me/5551989533261?text=Olá" target="_blank" rel="noopener noreferrer"> <img src="images/PastaLogos/whatsapp.png" class="logo"></img></a> 
+
+              <a href="https://www.facebook.com/rafael.mocellin.52/" target="_blank" rel="noopener noreferrer"> <img src="images/PastaLogos/facebook.png" class="logo"></img></a>
+
+              <a href="https://www.instagram.com/r4f4leszczynsk1/" target="_blank" rel="noopener noreferrer"> <img src="images/PastaLogos/instagram.png" class="logo"></img></a>
+          </h1>
+          
+
+      </div>
+  </footer>
+
+  <script src="scripts/index.js"></script>
+  </body>
+</html>

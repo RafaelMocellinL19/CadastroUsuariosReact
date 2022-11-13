@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+ :root {
+    --cor-vermelha: rgb(198, 51, 51);
+    --cor-azul: #4098f0;
+    --cor-azul-escuro: #151555;
+    --cor-escura: rgb(42, 38, 38);
+} 
+html{
+    background-color: #FAFAFA;
+    
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+.lista-pessoas-vazia__msg {
+    text-align: center;
+    background-color: #62defc;
+    color: #000;
+    letter-spacing: 1px;
+    margin: 120px auto;
+    padding: 1.2em;
+    width: min(75%, 450px);
+    border-radius: 25px;
+}
+
+/* LISTA DE PESSOAS */
+.contein__lista-pessoas {
+    width: min(70%, 800px);
+    min-width: 350px;
+    margin: 30px auto 20px;
+    max-height: 515px;
+    overflow-y: auto;
+    border-radius: 5px;
+}
+
+.lista-pessoas {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.6);
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+tr:nth-child(odd){
+    background-color: #FAFAFA;
+}
+
+.lista-pessoas th {
+    background-color: #62defc;
+    color: #000;
+    text-shadow: 0px 0px 2px #62defc;
+    letter-spacing: 1px;
+}
+
+.lista-pessoas th,
+.lista-pessoas td {
+    padding: 1em 0.7em;
+    text-align: center;
+    position: relative;
+}
+
+td.lista-pessoas__content-btn {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* MODAIS */
+.modal {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.form-addPessoa,
+.form-editPessoa,
+.modal-removerPessoa__section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FAFAFA;
+    padding: 2em;
+    width: min(400px, 80%);
+    min-width: 312px;
+    border-radius: 10px;
+}
+
+.modal__mensagem {
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.form__content-flutuante {
+    position: relative;
+    padding-top: 13px;
+    margin-top: 5%;
+    margin-bottom: 8%;
+}
+
+.form__content-flutuante label,
+.form__content-flutuante label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 13px;
+    transition: all 200ms ease-out;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.input-modal{
+    width: 100%;
+    display: inline-block;
+    border: 0;
+    border-bottom: 2px solid #000;
+    background-color: transparent;
+    outline: 0;
+    transition: all 200ms ease-out;
+    padding: 4px 1px 7px;
+    font-size: 1em;
+}
+
+.input-modal:focus {
+    border-color:#4098f0;
+}
+
+.input-modal:focus + label {
+    color:#000;
+}
+
+.input-modal:focus + label,
+.input-modal:not(:placeholder-shown) + label {
+    font-size: 13px;
+    margin-top: 0;
+}
+
+.form-addPessoa__label-data,
+.form-editPessoa__label-data {
+    display: block;
+    margin-bottom: 0.7em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#form-editPessoa__input-data,
+#form-addPessoa__input-data {
+    padding: 5px 1px;
+    font-size: 0.9em;
+    border: 0;
+    border-bottom: 2px solid #000;
+    background-color: transparent;
+    outline: 0;
+}
+
+#form-editPessoa__input-data:focus,
+#form-addPessoa__input-data:focus {
+    border-color: var(--cor-azul);
+}
+
+.modal_content-btn {
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+}
+
+.form__msg-erro {
+    display: block;
+    visibility: hidden;
+    margin-top:5px;
+    color: var(--cor-vermelha);
+}
+
+div.modal-removerPessoa__content {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* BOTÕES */
+.modal-removerPessoa__btn-remover,
+.form-editPessoa__btn-edit,
+.form-addPessoa__btn-add {
+    padding: 0.7em 1em 0.5em;
+    border-radius: 20px;
+    border: 2px solid var(--cor-azul);
+    width: 115px;
+    height: 44px;
+    background-color: var(--cor-azul);
+    color: #FAFAFA;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+    .form-addPessoa__btn-add:hover,
+    .form-editPessoa__btn-edit:hover,
+    .btn-addPessoa:hover {
+        background-color: #FAFAFA;
+        color: var(--cor-azul);
+        border: 2px solid var(--cor-azul);
+    }
+
+button.modal-removerPessoa__btn-remover {
+    background-color: var(--cor-vermelha);
+    border: 2px solid var(--cor-vermelha);
+}
+    .modal-removerPessoa__btn-remover:hover {
+        background-color: var(--cor-escura);
+        border: 2px solid var(--cor-escura);
+    }
+
+.btn-addPessoa {
+    display: block;
+    margin:  0 auto 4px;
+    width: 10em;
+    padding: 0.5em 0.5em 0.7em;
+    font-size: 1em;
+    border: 2px solid #62defc;
+    border-radius: 20px;
+    background-color:#62defc;
+    color: #000;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.btn-icone {
+    vertical-align: middle;
+}
+
+.btn-addPessoa .btn-icone {
+    vertical-align: sub;
+}
+
+.botoes-cancelar {
+    background-color: transparent;
+    margin-left: 13px;
+    padding: 0.7em 1em 0.5em 0.8em;
+    width: 115px;
+    height: 44px;
+    border-radius: 20px;
+    border: 2px solid var(--cor-vermelha);
+    color: var(--cor-vermelha);
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+    .botoes-cancelar:hover {
+        background-color: var(--cor-vermelha);
+        color: #FAFAFA;
+    }
+
+.lista-pessoas__btn-editPessoa {
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+    border: 0;
+    background-image: url(images/eye.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-color: var(--cor-azul);
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+    .lista-pessoas__btn-editPessoa:hover {
+        background-color: var(--cor-azul-escuro);
+    }
+
+.lista-pessoas__btn-removerPessoa {
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+    border: 0;
+    background-image: url(images/trash.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    margin-left: 3px;
+    background-color: var(--cor-vermelha);
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+    .lista-pessoas__btn-removerPessoa:hover {
+        background-color: var(--cor-escura);
+    }
+
+/* BARRA SCROLL */
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cor-azul) none;
+  }
+  
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: none;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--cor-azul);
+    border-radius: 20px;
+    border: none;
+  }
+
+
+@media (max-width: 850px){
+
+    .contein__lista-pessoas {
+        width: 86%;
+    }
+}
+
+@media (max-width: 670px){
+
+    .contein__lista-pessoas {
+        max-width: 400px;
+        max-height: 571px;
+        overflow-y: auto;
+        margin: 10px auto 18px;
+    }
+
+    .lista-pessoas {
+        border: none;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+    }
+
+    .lista-pessoas  td {
+        display: block;
+        text-align: right;
+        padding: 1.5em 2%;
+    }
+
+    .lista-pessoas td.lista-pessoas__content-btn {
+        text-align: center;
+    }
+
+    .lista-pessoas  td:before {
+        content: attr(data-titulo);
+        position: absolute;
+        left: 2%;
+        display: block;
+        font-weight: bold;
+    }
+
+    .lista-pessoas thead {
+        display: none;
+    }
+
+    .lista-pessoas__body tr {
+        display: block;
+    }
+
+    .lista-pessoas__btn-removerPessoa {
+        margin-left: 50px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .lista-pessoas__btn-editPessoa {
+        width: 36px;
+        height: 36px;
+    }
+
+    .lista-pessoas-vazia__msg {
+        margin: 100px auto;
+    }
+}
+
+/* CONTACT SECTION */
+footer{
+    text-align: center;
+
+}
+
+.logoSection{
+    align-content: center;
+    padding: 5px;
+}
+
+.logo{
+    width: 40px;
+    align-items: center;
+}
+
